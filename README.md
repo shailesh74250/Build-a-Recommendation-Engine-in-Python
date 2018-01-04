@@ -46,7 +46,28 @@ Now lets come to the special class of algorithms which are tailor-made for solvi
   
  ## The MovieLens DataSet
  I will be using the MovieLense dataset for this purpose. It has been collected by GroupLens 100K dataset can be downloaded from 
- (site url) 
+ here: https://grouplens.org/datasets/movielens/100k/
  It consists of:
     1. 100,000 ratings (1-5) from 943 users on 1682 movies.
     2. Each user has rated at least 20 movies.
+    3. Simple demographic info for the users (age, gender, occupation, zip)
+    4. Genre information of movies.
+ There are many files in the ml-100k.zip file which we can use. above file recommend_by_popularity.py, i have loaded the three most importance files to get a sense of the data. I also recommend you to read the readme document which gives a lot of information about the difference files.
+ 
+## A Simple Popularity Model
+Lest start with making a popularity based model, i.e. the one where all the users have same recommendation based on the most popular choices. We'll use the graphlab recommender function popularity_recommender for this.
+
+we can train a recommendation as:
+
+popularity_model = graphlab.popularity_recommender.create(train_data, user_it = 'user_id', item_id = 'movie_id', target = 'rating')
+
+Arguments
+  * train_data: the SFrame which contains the required data
+  * user_id: the column name which represents each user ID
+  * item_id: the column name which represents each item to be recommended
+  * target: the column name representing scores/ratings given by the user
+Lets use this model to make top 5 recommendations for first 5 users and see what comes out:
+  popularity_recomm = popularity_model.recommend(users = range(1,6), k = 5)
+  popularity_recomm.print_rows(num_rows = 25)
+
+    

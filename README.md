@@ -1,5 +1,5 @@
 # Build-a-Recommendation-Engine-in-Python
-# Build-a-Recommendation-Engine-in-Python
+
 Recommendation engines are nothing but an automated form of a “shop counter guy”. You ask him for a product. Not only he shows that product, but also the related ones which you could buy. They are well trained in cross selling and up selling. So, does our recommendation engines.
 
 The ability of these engines to recommend personalized content, based on past behavior is incredible. It brings customer delight and gives them a reason to keep returning to the website.

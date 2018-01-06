@@ -70,4 +70,32 @@ Lets use this model to make top 5 recommendations for first 5 users and see what
   popularity_recomm = popularity_model.recommend(users = range(1,6), k = 5)
   popularity_recomm.print_rows(num_rows = 25)
 
-    
+## A Collaborative Filtering Model
+1. Find similar items by using a similarity metric
+2. For a user, recommend the items most similar to the items he already likes
+To give you a high level overview, this is done by making an item-item matrix in which we keep a record of the pair of items of items which were reated together.
+
+In this case, an item is a movie. Once we have the matrix, we use it to determine the best recommendations for a user based on the movies he has already rated. Note that there a few more things to take care in actual implementation which would require deeper mathematical introspection.
+There are 3 types of item similarity metrics supported by graphlab.
+1. Jaccard Similarity:
+   * Similarity is based on the number of users which have rated item A and B divided by the number of users who have rated either A or B
+   * It is typically used where we don’t have a numeric rating but just a boolean value like a product being bought or an add being clicked
+
+2. Cosine Similarity:
+   * Similarity is the cosine of the angle between the 2 vectors of the item vectors of A and B
+   * Closer the vectors, smaller will be the angle and larger the cosine
+ 
+3. Pearson Similarity:
+   * Similarity is the pearson coefficient between the two vectors.
+   * Recommendations are different for each user So personalization exists. But how good is this model? We need some means of evaluating a recommendation engine.
+
+
+
+
+
+
+
+
+
+
+
